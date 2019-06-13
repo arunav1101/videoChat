@@ -251,9 +251,13 @@ function requestTurn(turnURL) {
       if (xhr.readyState === 4 && xhr.status === 200) {
         var turnServer = JSON.parse(xhr.responseText);
         console.log('Got TURN server: ', turnServer);
+
+        console.log("created URL",'turn:' + turnServer.username + '@' + turnServer.turn,
+        'credential :'+ turnServer.credential)
         pcConfig.iceServers.push({
+          
           'urls': 'turn:' + turnServer.username + '@' + turnServer.turn,
-          'credential': turnServer.password
+          'credential': turnServer.credential
         });
         turnReady = true;
       }
