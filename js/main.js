@@ -152,9 +152,12 @@ console.log('Getting user media with constraints', constraints);
 if (location.hostname !== 'localhost') {
   requestTurn(
     {
-      url: 'turn:192.158.29.39:3478?transport=tcp',
-      credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-      username: '28224511:1379330808'
+      url: 'turn:turn.bistri.com:80',
+            credential: 'homeo',
+            username: 'homeo'
+      // url: 'turn:192.158.29.39:3478?transport=tcp',
+      // credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+      // username: '28224511:1379330808'
   }
     // 'https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913'
   );
