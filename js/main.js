@@ -148,6 +148,7 @@ var constraints = {
 
 console.log('Getting user media with constraints', constraints);
 
+// setting Turn server
 if (location.hostname !== 'localhost') {
   requestTurn(
     {
