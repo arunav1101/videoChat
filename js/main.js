@@ -10,9 +10,22 @@ var turnReady;
 var roomNumber = null;
 var room;
 
+// var pcConfig = {
+//   'iceServers': [{
+//     'urls': 'stun:stun.l.google.com:19302'
+//   }]
+// };
+
+
 var pcConfig = {
-  'iceServers': [{
-    'urls': 'stun:stun.l.google.com:19302'
+  // Uses Google's STUN server
+  iceServers: [{
+      "url": "stun:piratefsh@45.55.61.164"
+  }, 
+  {
+  // Use my TURN server on DigitalOcean
+      'url': 'turn:piratefsh@45.55.61.164',
+      'credential': 'password'
   }]
 };
 
@@ -151,17 +164,19 @@ console.log('Getting user media with constraints', constraints);
 // setting Turn server
 if (location.hostname !== 'localhost') {
   requestTurn(
-    {
-      url: 'turn:turn.bistri.com:80',
-            credential: 'homeo',
-            username: 'homeo'
-      // url: 'turn:192.158.29.39:3478?transport=tcp',
-      // credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-      // username: '28224511:1379330808'
-  }
+    'https://computeengineondemand.appspot.com/turn?username=710350690&key=4080218913'
+      // 'https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913'
+      // url: 'turn:turn.bistri.com:80',
+      //       credential: 'homeo',
+      //       username: 'homeo'
+      // // url: 'turn:192.158.29.39:3478?transport=tcp',
+      // // credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
+      // // username: '28224511:1379330808'
+  
     // 'https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913'
   );
 }
+
 
 function maybeStart() {
   console.log('>>>>>>> maybeStart() ', isStarted, localStream, isChannelReady);
