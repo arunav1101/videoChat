@@ -16,7 +16,6 @@ var room;
 //   }]
 // };
 
-
 var pcConfig = {
   // Uses Google's STUN server
   iceServers: [{
@@ -28,7 +27,6 @@ var pcConfig = {
       'credential': 'password'
   }]
 };
-
 // Set up audio and video regardless of what devices are present.
 var sdpConstraints = {
   offerToReceiveAudio: true,
@@ -164,8 +162,8 @@ console.log('Getting user media with constraints', constraints);
 // setting Turn server
 if (location.hostname !== 'localhost') {
   requestTurn(
-    'https://computeengineondemand.appspot.com/turn?username=710350690&key=4080218913'
-      // 'https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913'
+    
+      'https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913'
       // url: 'turn:turn.bistri.com:80',
       //       credential: 'homeo',
       //       username: 'homeo'
