@@ -19,7 +19,8 @@ var room;
 var pcConfig = {
   // Uses Google's STUN server
   iceServers: [{
-      "url": "stun:piratefsh@45.55.61.164"
+    "url": " stun:stun.l.google.com:19302"
+    // "url": "stun:piratefsh@45.55.61.164"
   }, 
   {
   // Use my TURN server on DigitalOcean
@@ -32,39 +33,6 @@ var sdpConstraints = {
   offerToReceiveAudio: true,
   offerToReceiveVideo: true
 };
-//
-/*
-function randomNumber(min, max) {
-    return (Math.floor(Math.random() * (max - min + 1) + min))
-  }
-  /////
-///////
-// document.getElementById("connect").addEventListener("click", myFunction);
-
-function myFunction() {
-
-roomnumber = document.getElementById("existingRoomNumber").value
-console.log("grabbed roomnumber",roomnumber);
-}
-/////
-  ///
-
-/////////////////////////////////////////////
-// var roomId = document.querySelector('#roomNumber');
-
-if (!roomNumber){
-    room = randomNumber(1, 10000);}
-else{
-    room = roomNumber;
-}
-console.log('hello',room);
-var roomId= document.querySelector('#roomNumber');
-console.log('Id',roomId);
-
-roomId.textContent = room
-// Could prompt for room name:
-// room = prompt('Enter room name:');
-*/
 
 room ="Arunav";
 var socket = io.connect();
