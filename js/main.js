@@ -21,12 +21,14 @@ var pcConfig = {
   iceServers: [{
     "url": " stun:stun.l.google.com:19302"
     // "url": "stun:piratefsh@45.55.61.164"
-  }, 
-  {
-  // Use my TURN server on DigitalOcean
-      'url': 'turn:piratefsh@45.55.61.164',
-      'credential': 'password'
-  }]
+  // }, 
+  // {
+  // // Use my TURN server on DigitalOcean
+  //     'url': 'turn:piratefsh@45.55.61.164',
+  //     'credential': 'password'
+  // }
+  }
+]
 };
 // Set up audio and video regardless of what devices are present.
 var sdpConstraints = {
