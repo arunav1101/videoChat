@@ -10,11 +10,25 @@ var turnReady;
 var roomNumber = null;
 var room;
 
+// var pcConfig = {
+//   'iceServers': [{
+//     'urls': 'stun:stun.l.google.com:19302'
+//   }]
+// };
+
+
 var pcConfig = {
-  'iceServers': [{
-    'urls': 'stun:stun.l.google.com:19302'
+  // Uses Google's STUN server
+  iceServers: [{
+      "url": "stun:piratefsh@45.55.61.164"
+  }, 
+  {
+  // Use my TURN server on DigitalOcean
+      'url': 'turn:piratefsh@45.55.61.164',
+      'credential': 'password'
   }]
 };
+
 
 // Set up audio and video regardless of what devices are present.
 var sdpConstraints = {
