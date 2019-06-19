@@ -16,58 +16,24 @@ var room;
 //   }]
 // };
 
-
 var pcConfig = {
   // Uses Google's STUN server
   iceServers: [{
-      "url": "stun:piratefsh@45.55.61.164"
+    // "url": " stun:stun.l.google.com:19302"
+    "url": "stun:piratefsh@45.55.61.164"
   }, 
   {
   // Use my TURN server on DigitalOcean
       'url': 'turn:piratefsh@45.55.61.164',
       'credential': 'password'
-  }]
+  }
+]
 };
-
-
 // Set up audio and video regardless of what devices are present.
 var sdpConstraints = {
   offerToReceiveAudio: true,
   offerToReceiveVideo: true
 };
-//
-/*
-function randomNumber(min, max) {
-    return (Math.floor(Math.random() * (max - min + 1) + min))
-  }
-  /////
-///////
-// document.getElementById("connect").addEventListener("click", myFunction);
-
-function myFunction() {
-
-roomnumber = document.getElementById("existingRoomNumber").value
-console.log("grabbed roomnumber",roomnumber);
-}
-/////
-  ///
-
-/////////////////////////////////////////////
-// var roomId = document.querySelector('#roomNumber');
-
-if (!roomNumber){
-    room = randomNumber(1, 10000);}
-else{
-    room = roomNumber;
-}
-console.log('hello',room);
-var roomId= document.querySelector('#roomNumber');
-console.log('Id',roomId);
-
-roomId.textContent = room
-// Could prompt for room name:
-// room = prompt('Enter room name:');
-*/
 
 room ="Arunav";
 var socket = io.connect();
@@ -138,7 +104,7 @@ var localVideo = document.querySelector('#localVideo');
 var remoteVideo = document.querySelector('#remoteVideo');
 
 navigator.mediaDevices.getUserMedia({
-  audio: false,
+  audio: true,
   video: true
 })
 .then(gotStream)
@@ -162,16 +128,11 @@ var constraints = {
 
 console.log('Getting user media with constraints', constraints);
 
+// setting Turn server
 if (location.hostname !== 'localhost') {
-  requestTurn(
-    {
-      url: 'turn:192.158.29.39:3478?transport=tcp',
-      credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
-      username: '28224511:1379330808'
-  }
-    // 'https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913'
-  );
+  requestTurn('https://computeengineondemand.appspot.com/turn?username=41784574&key=4080218913');
 }
+
 
 function maybeStart() {
   console.log('>>>>>>> maybeStart() ', isStarted, localStream, isChannelReady);
