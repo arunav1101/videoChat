@@ -10,12 +10,6 @@ var turnReady;
 var roomNumber = null;
 var room;
 
-// var pcConfig = {
-//   'iceServers': [{
-//     'urls': 'stun:stun.l.google.com:19302'
-//   }]
-// };
-
 var pcConfig = {
   // Uses Google's STUN server
   iceServers: [{
